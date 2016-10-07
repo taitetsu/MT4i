@@ -1,0 +1,17 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+
+    <h4>┌╠┌лEntry┌ж┌л█е▀ъ┌лдв╞╦йч╞╦<TMPL_VAR NAME=RECENT_TB_COUNT>▄▐(░V┌╣┌╒▐┤)</h4>
+
+    <TMPL_LOOP NAME="TBPINGS">
+    <hr />
+    <TMPL_VAR NAME=TBPING_TITLE><br />
+    <TMPL_VAR NAME=TBPING_EXCERPT><br />
+    <a href="<TMPL_VAR NAME=TBPING_SOURCEURL>">Weblog:<TMPL_VAR NAME=TBPING_BLOG_NAME></a>
+    <br /><TMPL_VAR NAME=TBPING_ICON_CLOCK>(<TMPL_VAR NAME=TBPING_CREATED_ON>)<br />
+    <TMPL_VAR NAME=TBPING_ADMIN_BUTTONS>
+    </TMPL_LOOP>
+
+    <hr />
+    <a href="<TMPL_VAR NAME=BACK_URL>">▀L▌√┌ж√ъ┌И</a>
+
+<TMPL_INCLUDE NAME="footer.tmpl">

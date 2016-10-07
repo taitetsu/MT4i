@@ -1,0 +1,17 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+
+    <h4>ล฿ฬบาÝฤ<TMPL_VAR NAME="RECENT_COMMENTS_COUNT"></h4>
+
+    <hr />
+
+    <TMPL_LOOP NAME="RECENT_COMMENTS">
+    Re:<a href="<TMPL_VAR NAME="RECENT_COMMENT_URL">"><TMPL_VAR NAME="RECENT_COMMENT_TITLE"></a>
+    <br />by <TMPL_VAR NAME="RECENT_COMMENT_AUTHOR">(<TMPL_VAR NAME="RECENT_COMMENT_CREATED_ON">)
+    <hr />
+    </TMPL_LOOP>
+
+    <p>
+        <TMPL_VAR NAME="ICON_NO_0"><a href="<TMPL_VAR NAME="BACK_URL">"<TMPL_VAR NAME="ACCESS_KEY_0">>๊——ึ–฿้</a>
+    </p>
+
+<TMPL_INCLUDE NAME="footer.tmpl">

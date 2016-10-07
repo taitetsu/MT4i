@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=Shift_JIS" />
+    <meta name="description" content="<TMPL_VAR NAME="BLOG_DESCRIPTION">" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <TMPL_IF NAME="AGENT_SMARTPHONE"><meta name="viewport" content="width=280" /></TMPL_IF>
+    <TMPL_IF NAME="MODE_INDEX"><meta name="robots" content="index,follow" /><TMPL_ELSE><meta name="robots" content="nofollow"></TMPL_IF>
+    <title><TMPL_IF NAME="MODE_INDIVIDUAL"><TMPL_VAR NAME="ENTRY_TITLE"> : </TMPL_IF><TMPL_IF NAME="MODE_COMMENT"><TMPL_VAR NAME="ENTRY_TITLE">へのｺﾒﾝﾄ : </TMPL_IF><TMPL_IF NAME="MODE_COMMENT_FORM"><TMPL_VAR NAME="ENTRY_TITLE">へのｺﾒﾝﾄ投稿 : </TMPL_IF><TMPL_IF NAME="MODE_TRACKBACK">このEntryへの最近のﾄﾗｯｸﾊﾞｯｸ : </TMPL_IF><TMPL_IF NAME="MODE_REDIRECT">ﾘﾀﾞｲﾚｸﾄ<TMPL_ELSE><TMPL_IF NAME="MODE_IMAGE">画像を表示<TMPL_ELSE><TMPL_IF NAME="ERROR_MESSAGE">Error - MT4i<TMPL_ELSE><TMPL_IF NAME="BLOG_TITLE"><TMPL_VAR NAME="BLOG_TITLE"> mobile ver.<TMPL_ELSE>MT4i <TMPL_VAR NAME="VERSION"></TMPL_IF></TMPL_IF></TMPL_IF></TMPL_IF></title>
+</head>
+<body bgcolor="<TMPL_VAR NAME="BODY_BG_COLOR">" text="<TMPL_VAR NAME="BODY_TEXT_COLOR">" link="<TMPL_VAR NAME="BODY_LINK_COLOR">" alink="<TMPL_VAR NAME="BODY_ALINK_COLOR">" vlink="<TMPL_VAR NAME="BODY_VLINK_COLOR">">

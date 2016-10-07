@@ -1,0 +1,45 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+
+    <h4>"<TMPL_VAR NAME="SEARCH_KEYWORDS" ESCAPE=HTML>"の検索結果</h4>
+
+    <center>
+        <form method="post" action="./<TMPL_VAR NAME="SCRIPT_NAME">">
+            <input type="text" name="search_keyword" />
+            <input type="submit" name="search_submit" value="検索" />
+            <input type="hidden" name="mode" value="search" />
+            <input type="hidden" name="id" value="<TMPL_VAR NAME="BLOG_ID">" />
+        </form>
+    </center>
+
+    <hr />
+
+    <TMPL_LOOP NAME="SEARCH_RESULTS">
+    <p>
+    <a href="<TMPL_VAR NAME="SEARCH_RESULTS_URL">"<TMPL_VAR NAME="ACCESS_KEY">>
+        <TMPL_VAR NAME="ROW_NO"><TMPL_VAR NAME="SEARCH_RESULTS_TITLE">
+    </a>
+    <!-- <br />投稿者：<a href="<TMPL_VAR NAME="SEARCH_RESULTS_AUTHOR_URI">"><TMPL_VAR NAME="SEARCH_RESULTS_AUTHOR_NAME"></a> -->
+    <br /><TMPL_VAR NAME="ICON_CLOCK"><!-- 公開日時： --><TMPL_VAR NAME="SEARCH_RESULTS_PUBLISHED">
+    <!-- <br /><TMPL_VAR NAME="ICON_CLOCK">更新日時：<TMPL_VAR NAME="SEARCH_RESULTS_UPDATED"> -->
+    <br /><TMPL_VAR NAME="SEARCH_RESULTS_CONTENT">
+    </p>
+    </TMPL_LOOP>
+    <TMPL_UNLESS NAME="SEARCH_RESULTS">
+    該当ﾃﾞｰﾀがありません。
+    </TMPL_UNLESS>
+
+    <hr />
+
+    <p>
+    <TMPL_IF NAME="PREV_URL">
+        <TMPL_VAR NAME="ICON_NO_8"><a href="<TMPL_VAR NAME="PREV_URL">"<TMPL_VAR NAME="ACCESS_KEY_8">>前へ</a>
+        <br />
+    </TMPL_IF>
+    <TMPL_IF NAME="NEXT_URL">
+        <TMPL_VAR NAME="ICON_NO_9"><a href="<TMPL_VAR NAME="NEXT_URL">"<TMPL_VAR NAME="ACCESS_KEY_9">>次へ</a>
+        <br />
+    </TMPL_IF>
+        <TMPL_VAR NAME="ICON_NO_0"><a href="<TMPL_VAR NAME="BACK_URL">"<TMPL_VAR NAME="ACCESS_KEY_0">>Topへ戻る</a>
+    </p>
+
+<TMPL_INCLUDE NAME="footer.tmpl">

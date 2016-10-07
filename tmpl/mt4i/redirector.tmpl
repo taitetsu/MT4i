@@ -1,0 +1,29 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+
+    <p>
+        別のｻｲﾄへｼﾞｬﾝﾌﾟしようとしています。
+        <TMPL_IF NAME="MLD_STR"><br />携帯電話／ﾓﾊﾞｲﾙ機器用のURLが見つかりました。</TMPL_IF>
+    </p>
+    <p>↓ｸﾘｯｸ<br />
+    <TMPL_IF NAME="MLD_STR">
+    <TMPL_VAR NAME="MLD_STR"><a href="<TMPL_VAR NAME="MOBILE_URL">"><TMPL_VAR NAME="MOBILE_URL"></a>
+    <TMPL_ELSE>
+    <a href="<TMPL_VAR NAME="SOURCE_URL">"><TMPL_VAR NAME="SOURCE_URL"></a>
+    </TMPL_IF>
+    </p>
+    <p>
+        <TMPL_IF NAME="MLD_STR">下記が元のURLになります。上記で上手く表示できない場合、下記URLをお試し下さい。<TMPL_ELSE>上記URLのｻｲﾄは携帯電話で正しく表示できないかもしれませんが、下記URLであれば表示できるかもしれません。</TMPL_IF>
+
+    </p>
+    <p>↓ｸﾘｯｸ<br />
+    <TMPL_IF NAME="MLD_STR">
+    <a href="<TMPL_VAR NAME="SOURCE_URL">"><TMPL_VAR NAME="SOURCE_URL"></a>
+    <TMPL_ELSE>
+    <a href="<TMPL_VAR NAME="MOBILE_URL">"><TMPL_VAR NAME="MOBILE_URL"></a>
+    </TMPL_IF>
+    </p>
+    <hr />
+    <TMPL_VAR NAME="ICON_NO_0"><a href="<TMPL_VAR NAME="BACK_URL">"<TMPL_VAR NAME="ACCESS_KEY_0">>戻る</a>
+    <hr />
+
+<TMPL_INCLUDE NAME="footer.tmpl">

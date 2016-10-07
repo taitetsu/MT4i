@@ -1,0 +1,28 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+
+    <p>
+        Error：引数にblog IDを指定してください。
+    </p>
+    <table border="1">
+        <tr>
+            <th style="color:#FF0000;">blog ID</th>
+            <th>blog Name</th>
+            <th>Description</th>
+        </tr>
+        <TMPL_LOOP NAME="BLOGS">
+        <tr>
+            <th style="color:#FF0000;"><TMPL_VAR NAME="BLOG_ID"></th>
+            <td>
+                <a href="<TMPL_VAR NAME="BLOG_URL">"><TMPL_VAR NAME="BLOG_NAME"></a>
+            </td>
+            <td>
+                <TMPL_VAR NAME="BLOG_DESCRIPTION">
+            </td>
+        </tr>
+        </TMPL_LOOP>
+    </table>
+    <br />
+    <span style="font-weight:bold;">blog ID の指定方法：</span>
+    <br />　mt4imgr.cgi の設定にて "<span style="font-weight:bold;">Blog_ID - Movable Type 上で使用しているBlog固有のID</span>" に上記 <span style="color:#FF0000;font-weight:bold;">blog ID</span> を指定するか、<br />　もしくは上記 <span style="color:#FF0000;font-weight:bold;">blog Name</span> にﾘﾝｸされている URL でｱｸｾｽする。
+
+<TMPL_INCLUDE NAME="footer.tmpl">

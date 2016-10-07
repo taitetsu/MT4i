@@ -1,0 +1,88 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+
+    <h1 style="color:#FF0000; text-align:center;">
+        <TMPL_VAR NAME="BLOG_LOGO">
+    </h1>
+    <div style="text-align:center">
+        mobile ver.
+    </div>
+    <TMPL_IF NAME="ADMIN_MODE">
+    <h2 style="color:#FF0000; text-align:center;">
+        管理者モード
+    </h2>
+    </TMPL_IF>
+    <hr />
+    <TMPL_IF NAME="TOP">
+    <TMPL_IF NAME="BLOG_DESCRIPTION">
+    <div style="text-align:center">
+        <TMPL_VAR NAME="BLOG_DESCRIPTION">
+    </div>
+    <hr />
+    </TMPL_IF>
+    </TMPL_IF>
+    <div style="text-align:center">
+        <TMPL_IF NAME="TOP">
+        <form method="post" action="./<TMPL_VAR NAME="SCRIPT_NAME">">
+            <input type="text" name="search_keyword" /><input type="submit" name="search_submit" value="検索" />
+            <input type="hidden" name="mode" value="search" />
+            <input type="hidden" name="id" value="<TMPL_VAR NAME="BLOG_ID">" />
+        </form>
+        </TMPL_IF>
+        <TMPL_VAR NAME="CATEGORY_SELECTOR">
+    </div>
+
+    <hr />
+
+    <!-- ENTRIES -->
+    <TMPL_LOOP NAME="ENTRIES">
+        <p>
+        <TMPL_VAR NAME="ENTRY_ROW_NO"><a href="<TMPL_VAR NAME="ENTRY_LINK_URL">"<TMPL_VAR NAME="ENTRY_ACCESS_KEY">><TMPL_VAR NAME="ENTRY_LINK_TITLE"></a><br />
+        <TMPL_VAR NAME="ICON_CLOCK">(<TMPL_VAR NAME="ENTRY_CREATED_ON">)<span style="color:#FF0000"><TMPL_VAR NAME="ENTRY_COMMENT_CNT"></span><span style="color:#00CC00"><TMPL_VAR NAME="ENTRY_PING_CNT"></span><br />
+        </p>
+    </TMPL_LOOP>
+    <TMPL_UNLESS NAME="ENTRIES">
+    このｶﾃｺﾞﾘに属するｴﾝﾄﾘはありません。
+    </TMPL_UNLESS>
+    <TMPL_IF NAME="ENTRIES">
+    <div style="text-align:center">
+        <TMPL_VAR NAME="ENTRY_PAGE">
+    </div>
+    </TMPL_IF>
+
+    <TMPL_IF NAME="ENTRY_INDEX_NAVI">
+    <hr />
+    <TMPL_IF NAME="ENTRY_INDEX_NAVI_NEXT">
+        <TMPL_VAR NAME="ICON_NO_9"><a href="<TMPL_VAR NAME="ENTRY_INDEX_NAVI_NEXT_URL">"<TMPL_VAR NAME="ACCESS_KEY_9">>次の<TMPL_VAR NAME="ENTRY_INDEX_NAVI_NEXT_COUNT">件 &gt;</a><br />
+    </TMPL_IF>
+    <TMPL_IF NAME="ENTRY_INDEX_NAVI_PREV">
+        <TMPL_VAR NAME="ICON_NO_7"><a href="<TMPL_VAR NAME="ENTRY_INDEX_NAVI_PREV_URL">"<TMPL_VAR NAME="ACCESS_KEY_7">>&lt; 前の<TMPL_VAR NAME="ENTRY_INDEX_NAVI_PREV_COUNT">件</a><br />
+    </TMPL_IF>
+    <TMPL_IF NAME="ENTRY_INDEX_NAVI_BEGIN">
+        <TMPL_VAR NAME="ICON_NO_0"><a href="<TMPL_VAR NAME="ENTRY_INDEX_NAVI_BEGIN_URL">"<TMPL_VAR NAME="ACCESS_KEY_0">>&lt;&lt; 最初の<TMPL_VAR NAME="ENTRY_INDEX_NAVI_BEGIN_COUNT">件</a><br />
+    </TMPL_IF>
+    <TMPL_IF NAME="ENTRY_INDEX_NAVI_LAST">
+        <TMPL_VAR NAME="ICON_NO_8"><a href="<TMPL_VAR NAME="ENTRY_INDEX_NAVI_LAST_URL">"<TMPL_VAR NAME="ACCESS_KEY_8">>最後の<TMPL_VAR NAME="ENTRY_INDEX_NAVI_LAST_COUNT">件 &gt;&gt;</a><br />
+    </TMPL_IF>
+    </TMPL_IF>
+
+    <hr />
+
+    <TMPL_IF NAME="TOP">
+    <TMPL_IF NAME="LINK_RECENT_COMMENT">
+    <TMPL_VAR NAME="LINK_RECENT_COMMENT">
+    <hr />
+    </TMPL_IF>
+    </TMPL_IF>
+
+    <TMPL_IF NAME="ADMIN_MODE">
+    <TMPL_VAR NAME="ADMIN_MENU">
+    <hr />
+    </TMPL_IF>
+
+    <p>
+        <div style="text-align:center">
+            <TMPL_VAR NAME="ADMIN_INFO">
+        </div>
+    </p>
+
+<TMPL_INCLUDE NAME="footer.tmpl">

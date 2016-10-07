@@ -1,0 +1,11 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+
+<TMPL_IF NAME="COMMENT_HIDDEN">
+ｺﾒﾝﾄが投稿されましたが、掲載は保留されています。<br>管理人による承諾後、掲載されます。
+<TMPL_ELSE>
+ｺﾒﾝﾄが投稿されました
+</TMPL_IF>
+<hr />
+<a href="<TMPL_VAR NAME="BACK_URL">"<TMPL_VAR NAME="ACCESS_KEY_0">>戻る</a>
+
+<TMPL_INCLUDE NAME="footer.tmpl">
