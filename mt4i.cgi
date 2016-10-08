@@ -516,10 +516,12 @@ sub main {
                 $template->param( ENTRY_INDEX_NAVI_NEXT => 1 );
                 my $href = &make_href( "", 0, $nextpage, 0, 0 );
                 $template->param( ENTRY_INDEX_NAVI_NEXT_URL => $href );
-                $template->param( ENTRY_INDEX_NAVI_NEXT_COUNT =>
+                $template->param(
+                    ENTRY_INDEX_NAVI_NEXT_COUNT =>
                         ( $page == $lastpage - 1 && $amari > 0 )
                     ? $amari
-                    : $cfg{DispNum} );
+                    : $cfg{DispNum}
+                );
             }
             else {
                 $template->param( ENTRY_INDEX_NAVI_NEXT => 0 );
@@ -558,7 +560,8 @@ sub main {
                 $template->param(
                     ENTRY_INDEX_NAVI_LAST_COUNT => ( $amari > 0 )
                     ? $amari
-                    : $cfg{DispNum} );
+                    : $cfg{DispNum}
+                );
             }
             else {
                 $template->param( ENTRY_INDEX_NAVI_LAST => 0 );
@@ -599,7 +602,8 @@ sub main {
     $template->param(
         CELLPHONE => ( $ua eq "i-mode" || $ua eq "ezweb" || $ua eq "j-sky" )
         ? 1
-        : 0 );
+        : 0
+    );
 
     # Common
     $template = _tmpl_common($template);
@@ -671,10 +675,11 @@ sub index_category_selector {
             # カテゴリ名の日本語化
             # $MTCategoryDescriptionで表示している場合に
             # カテゴリセレクタの内容を置換する
-            $label
-                = _conv_utf8_z2h( ( $cfg{CatDescReplace} eq "yes" )
+            $label = _conv_utf8_z2h(
+                ( $cfg{CatDescReplace} eq "yes" )
                 ? $category->description
-                : $category->label );
+                : $category->label
+            );
             my $cat_id = $category->id;
             require MT::Entry;
             require MT::Placement;
@@ -711,8 +716,7 @@ sub index_category_selector {
                 @cat_datas;
         }
         elsif ( $cfg{CatDescSort} eq "desc" ) {
-            @cat_datas
-                = reverse
+            @cat_datas = reverse
                 sort { ( split( /\,/, $a ) )[1] cmp( split( /\,/, $b ) )[1] }
                 @cat_datas;
         }
@@ -1301,8 +1305,10 @@ sub individual {
                         my $match = 0;
                         foreach my $place (@places) {
                             $match++
-                                if ( first { $place->category_id == $_ }
-                                @nondispcats );
+                                if (
+                                first { $place->category_id == $_ }
+                                @nondispcats
+                                );
                         }
                         if ( $match < @places ) {
                             last;
@@ -1330,8 +1336,10 @@ sub individual {
                         my $match = 0;
                         foreach my $place (@places) {
                             $match++
-                                if ( first { $place->category_id == $_ }
-                                @nondispcats );
+                                if (
+                                first { $place->category_id == $_ }
+                                @nondispcats
+                                );
                         }
                         if ( $match < @places ) {
                             last;
@@ -1939,8 +1947,7 @@ sub trackback {
         }
 
         $row_data{TBPING_ICON_CLOCK} = (
-            $cfg{AccessKey} eq "no"
-                || ( $cfg{AccessKey} eq "yes"
+            $cfg{AccessKey} eq "no" || ( $cfg{AccessKey} eq "yes"
                 && $ua ne "i-mode"
                 && $ua ne "ezweb"
                 && $ua ne "j-sky" )
@@ -2044,8 +2051,10 @@ sub get_entries {
                         my $match_cat = 0;
                         foreach my $place (@places) {
                             $match_cat++
-                                if ( first { $place->category_id == $_ }
-                                @nondispcats );
+                                if (
+                                first { $place->category_id == $_ }
+                                @nondispcats
+                                );
                         }
                         if ( $match_cat < @places ) {
                             if ( $count > $_[0] ) {
@@ -2141,8 +2150,10 @@ sub get_comments {
                     my $match_cat = 0;
                     foreach my $place (@places) {
                         $match_cat++
-                            if ( first { $place->category_id == $_ }
-                            @nondispcats );
+                            if (
+                            first { $place->category_id == $_ }
+                            @nondispcats
+                            );
                     }
                     if ( @places > $match_cat ) {
                         push @comments, $c;
@@ -2202,8 +2213,10 @@ sub get_ttlcnt {
                     my $match_cat = 0;
                     foreach my $place (@places) {
                         $match_cat++
-                            if ( first { $place->category_id == $_ }
-                            @nondispcats );
+                            if (
+                            first { $place->category_id == $_ }
+                            @nondispcats
+                            );
                     }
                     if ( $match_cat < @places ) {
                         push @ent, $entry;
@@ -4448,9 +4461,10 @@ sub check_category {
                     = MT::Placement->load( { entry_id => $entry->id } );
                 my @nondispcats = MT4i::Func::get_nondispcats();
                 for my $category (@categories) {
-                    if ( !( first { $category->id == $_ } @nondispcats )
+                    if (!( first { $category->id == $_ } @nondispcats )
                         && first { $category->id == $_->category_id }
-                        @places )
+                        @places
+                        )
                     {
                         $cat_label = _conv_utf8_z2h(
                             ( $cfg{CatDescReplace} eq "yes" )
